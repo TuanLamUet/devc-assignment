@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .containerX {
+      width: 600px;
+      height: 196px;
+      padding: 30px;
+      box-shadow: 1px 8px 8px rgba(0, 0, 0, .3);
+      background-color: #e3e5ff;
+    }
+
+    button {
+      margin-top: 20px;
+    }
+
+    .alert__danger {
+      background-color: red;
+    }
+
+    .alert__success {
+      background-color: green;
+    }
+
+    #message {
+      border-radius: 7px;
+      padding: 7px;
+      margin: 5px 0;
+      color: #ffffff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="containerX">
+    <div id="message">
+
+    </div>
+    <div>
+      <input type="number" name="number" id="number">
+    </div>
+    <div>
+      <button id="guessNumber" class="btn btn-success">Guess</button>
+    </div>
+  </div>
+  <script>
+    const randNum = Math.round(Math.random());
+    console.log(randNum);
+    let count = 10
+    let button = document.getElementById('guessNumber');
+
+    button.addEventListener('click', function () {
+      --count;
+      let alertMessage = document.getElementById('message');
+      let message = '';
+      if(count > 0) {
+        let number = parseInt(document.getElementById('number').value);
+        if (number > randNum) {
+          alertMessage.classList.remove('alert__success')
+          alertMessage.classList.add('alert__danger')
+          message = `Sorry your guess is too high, you have ${count} guesses left`
+        } else if (number < randNum) {
+          alertMessage.classList.remove('alert__success')
+          alertMessage.classList.add('alert__danger')
+          message = `Sorry your guess is too low, you have ${count} guesses left`;
+
+        } else if (number === randNum) {
+          alertMessage.classList.remove('alert__danger')
+          alertMessage.classList.add('alert__success')
+          message = 'Congratulations!! You guessed correctly.'
+        }
+
+      } else {
+        message = 'You have run out of guesses'
+      }
+      alertMessage.innerHTML = message;
+    })
+  </script>
+</body>
+
+</html>
