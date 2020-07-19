@@ -29,7 +29,7 @@ const Element = ({type, name}) => {
         {name}
       </Text>
       <Image
-        style={{width: 100, height: 100}}
+        style={{width: 150, height: 150, padding: 10}}
         source={{uri: Helper.getUrl(type)}}
       />
       <Text style={{textAlign: 'center'}}>{Helper.getName(type)}</Text>
