@@ -20,7 +20,6 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-
 const photos = [
   {id: 1, uri: 'https://avatarfiles.alphacoders.com/782/78200.png'},
   {id: 2, uri: 'https://avatarfiles.alphacoders.com/106/106723.png'},
@@ -84,7 +83,7 @@ const App = () => {
                     alignItems: 'center',
                     justifyContent: 'center',
                   }}>
-                  <Icon name = "send" color="#fff" size= {18}/>
+                  <Icon name="send" color="#fff" size={18} />
                 </TouchableOpacity>
               </View>
             </View>
